@@ -1,0 +1,16 @@
+# Exported from Render on 2024-09-09T15:34:59Z
+services:
+- type: web
+  name: shop-ecommerce-portal
+  runtime: node
+  repo: https://gitlab.com/aws-deployment2/deployment/staging/elecshop-ecommerce/dev/shop-ecommerce-portal
+  plan: free
+  envVars:
+  - key: NEXT_PUBLIC_SERVER_API_URL
+    sync: false
+  - key: NEXT_PUBLIC_PAYPAL_CLIENT_ID
+    sync: false
+  region: singapore
+  buildCommand: yarn --frozen-lockfile install; yarn build
+  startCommand: yarn dev
+version: "1"
